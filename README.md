@@ -1,6 +1,8 @@
 # Amazon Reviews — Recommender System & Sentiment Analysis
 
-End-to-end machine learning project on the **Amazon Reviews 2023** dataset (*Movies & TV* category), built as three incremental stages: **collaborative filtering**, **content-based filtering**, and **sentiment analysis** — with a bonus LLM-based classifier.
+This is an end-to-end machine learning project I built on the **Amazon Reviews 2023** dataset (*Movies & TV* category), designed as three incremental stages: **collaborative filtering**, **content-based filtering**, and **sentiment analysis** — plus a bonus LLM-based classifier.
+
+I developed it during the third year of my Computer Science degree, for the *Machine Learning & Intelligent Agents* course. My goal was to go beyond the standard coursework: take a real, messy dataset and squeeze out honest, reproducible results at each stage, comparing techniques instead of just running one model.
 
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Jupyter](https://img.shields.io/badge/jupyter-notebook-orange)
@@ -11,7 +13,7 @@ End-to-end machine learning project on the **Amazon Reviews 2023** dataset (*Mov
 
 ## Overview
 
-The project answers three questions on the same real-world dataset (~463k ratings after filtering):
+I answer three questions on the same real-world dataset (~463k ratings after filtering):
 
 | Stage | Question | Approach |
 | --- | --- | --- |
@@ -19,7 +21,7 @@ The project answers three questions on the same real-world dataset (~463k rating
 | **2. Intermediate** | Can we recommend well by looking at *what* the items are (text), not just who rated them? | Content-Based — TF-IDF and Transformer embeddings, per-user K-NN regression |
 | **3. Advanced** | Can we automatically infer sentiment (positive / neutral / negative) from review text? | Sentiment Analysis — 4 classifiers × 2 embeddings, class-imbalance handling, bonus LLM (Groq) |
 
-Every stage is fully reproducible: fixed seed (`42`), stratified splits, cross-validation, and metric-based model selection.
+I made every stage fully reproducible: fixed seed (`42`), stratified splits, cross-validation, and metric-based model selection.
 
 ---
 
@@ -44,11 +46,11 @@ Every stage is fully reproducible: fixed seed (`42`), stratified splits, cross-v
 | K-NN + TF-IDF embedding | Content-Based | 0.9836 |
 | K-NN + Sentence-Transformer (all-mpnet) | Content-Based | 0.9837 |
 
-**Takeaway:** on this dataset SVD wins by exploiting co-rating signal; content-based approaches close the gap and remain the only viable option for cold-start products.
+**My reading:** on this dataset SVD wins by exploiting the co-rating signal; the content-based approaches close the gap and stay the only viable option for cold-start products, so I keep both in the pipeline.
 
 ### Sentiment classification — 3 classes (positive / neutral / negative)
 
-Class-imbalance is severe (neutral is rare), so the primary metric is **F1-macro**.
+Class imbalance is severe (neutral is the rare class), so I picked **F1-macro** as the primary metric instead of accuracy.
 
 | Classifier | Embedding | Accuracy | F1-macro |
 | --- | --- | --- | --- |
@@ -59,7 +61,7 @@ Class-imbalance is severe (neutral is rare), so the primary metric is **F1-macro
 | Decision Tree | TF-IDF | 0.785 | 0.587 |
 | KNN (k=5) | TF-IDF | 0.501 | 0.397 |
 
-**Bonus:** the LLM classifier (Groq + LangChain, zero-shot) is competitive without any training, but is slower and more expensive per prediction than the classical pipeline.
+**Bonus:** I also tried an LLM classifier (Groq + LangChain, zero-shot). It is competitive without any training, but slower and more expensive per prediction than the classical pipeline — a useful comparison, not a replacement.
 
 ---
 
@@ -98,7 +100,7 @@ Chapter 8 — Extra experiments (out of scope)
 
 ## How to run
 
-The notebook is designed for **Google Colab** with a GPU runtime (T4 is enough).
+I designed the notebook for **Google Colab** with a GPU runtime (T4 is enough).
 
 1. Open [`notebook.ipynb`](notebook.ipynb) in Google Colab.
 2. `Runtime → Change runtime type → GPU (T4)`.
@@ -148,15 +150,6 @@ amazon-reviews-recsys-sentiment/
 
 ---
 
-## Author
-
-**Andrea Saverino** — third-year Computer Science student, working on machine learning, NLP, and recommender systems.
-
-- GitHub: [@codebysave](https://github.com/codebysave)
-- Project developed for the *Machine Learning & Intelligent Agents* course.
-
----
-
 ## License
 
-Distributed under the MIT License — see [LICENSE](LICENSE) for details.
+I release this project under the MIT License — see [LICENSE](LICENSE) for details. Feel free to use it, adapt it, or take inspiration from it.
