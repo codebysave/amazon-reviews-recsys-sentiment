@@ -6,7 +6,6 @@ I developed it during the third year of my Computer Science degree, for the *Mac
 
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Jupyter](https://img.shields.io/badge/jupyter-notebook-orange)
-![License](https://img.shields.io/badge/license-MIT-green)
 ![Platform](https://img.shields.io/badge/runs%20on-Google%20Colab-yellow)
 
 ---
@@ -112,15 +111,13 @@ If the runtime crashes, checkpoints on disk (`parquet`, `.npy`, JSON) allow resu
 
 ### Local execution
 
-Requires Python 3.11+ and CUDA-capable GPU (recommended). Main dependencies:
+Requires Python 3.11+ and a CUDA-capable GPU (recommended for the transformer embeddings). Install the dependencies with:
 
+```bash
+pip install -r requirements.txt
 ```
-numpy pandas scikit-learn scikit-surprise
-torch transformers sentence-transformers
-matplotlib seaborn tqdm
-datasets huggingface_hub
-langchain langchain-groq  # optional, for bonus
-```
+
+The full dependency list with the exact versions I used is in [`requirements.txt`](requirements.txt).
 
 ---
 
@@ -129,7 +126,7 @@ langchain langchain-groq  # optional, for bonus
 ```
 amazon-reviews-recsys-sentiment/
 ├── README.md          # this file
-├── LICENSE            # MIT
+├── requirements.txt   # Python dependencies with versions
 ├── notebook.ipynb     # full 3-stage pipeline (96 cells)
 └── report.pdf         # written report (methodology + results)
 ```
@@ -144,8 +141,3 @@ amazon-reviews-recsys-sentiment/
 - **LLM bonus:** `langchain-groq` with HuggingFace zero-shot fallback
 - **Reproducibility:** fixed seed 42, stratified splits, cross-validation, saved checkpoints
 
----
-
-## License
-
-I release this project under the MIT License — see [LICENSE](LICENSE) for details. Feel free to use it, adapt it, or take inspiration from it.

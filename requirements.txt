@@ -1,0 +1,33 @@
+# Python 3.11+ (developed on 3.13.15)
+# Install with: pip install -r requirements.txt
+
+# Numerical stack
+numpy==2.1.3
+pandas
+scipy
+
+# Classical ML
+scikit-learn==1.6.1
+scikit-surprise==1.1.5
+imbalanced-learn
+
+# NLP
+nltk
+transformers
+sentence-transformers
+
+# Deep learning backend (required by transformers / sentence-transformers)
+torch
+
+# HuggingFace tooling — pinned to versions compatible with the datasets streaming API used in the notebook
+datasets<3.0.0
+huggingface-hub
+fsspec<=2024.6.1
+
+# LLM bonus (optional — the notebook falls back to a HuggingFace zero-shot pipeline if the API key is missing)
+langchain-groq
+
+# Plotting
+matplotlib
+seaborn
+tqdm
