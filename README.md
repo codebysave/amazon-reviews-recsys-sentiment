@@ -128,14 +128,10 @@ langchain langchain-groq  # optional, for bonus
 
 ```
 amazon-reviews-recsys-sentiment/
-├── README.md                    # this file
-├── LICENSE                      # MIT
-├── notebook.ipynb               # full 3-stage pipeline (96 cells)
-├── report/
-│   ├── report.pdf               # written report (methodology + results)
-│   └── report.docx
-└── presentation/
-    └── presentation.pptx        # final slide deck
+├── README.md          # this file
+├── LICENSE            # MIT
+├── notebook.ipynb     # full 3-stage pipeline (96 cells)
+└── report.pdf         # written report (methodology + results)
 ```
 
 ---
